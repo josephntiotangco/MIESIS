@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MEESEES2.Controls"
+             Title="Dashboard"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="MEESEES2.Views.MainPage">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0" HorizontalOptions="Start">
+            <Button Text="Filter" Command="{Binding ShowFilterCommand}" ImageSource="pasteladjust25.png" ContentLayout="Left,0" BackgroundColor="Transparent"/>
+        </StackLayout>
+        <Frame Grid.Row="1" Padding="15" CornerRadius="10" Margin="10,5,10,5" HeightRequest="{Binding FilterHeight}" x:Name="FilterFrame" IsVisible="{Binding FilterVisible}">
+            <Grid Grid.Row="1" HeightRequest="{Binding FilterHeight}" x:Name="FilterGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Vertical" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Label Text="From : " FontSize="10" Padding="0" Margin="2,0,2,0" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                    <controls:CustomDatePicker Style="{StaticResource Key=ListCustomDatePicker}" Date="{Binding FromDate}" x:Name="dpkFrom"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Label Text="To : " FontSize="10" Padding="0" Margin="2,0,2,0" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+                    <controls:CustomDatePicker Style="{StaticResource Key=ListCustomDatePicker}" Date="{Binding ToDate}" x:Name="dpkTo"/>
+                </StackLayout>
+                <Button Style="{StaticResource Key=CustomButton}" Command="{Binding LoadFilterDataCommand}" Text="LOAD" Grid.Column="2"/>
+            </Grid>
+        </Frame>
+        <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}" Grid.Row="2">
+            <ScrollView Grid.Row="2">
+                <Grid Grid.Row="2" Margin="5,10,5,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Frame Grid.Row="0" Style="{StaticResource Key=DashboardFrame}">
+                        <StackLayout Padding="10,5,10,5"   
+                             Orientation="Horizontal" 
+                             BackgroundColor="White">
+                            <Label  Text="My Income:" Style="{StaticResource Key=DashboardLabel}"/>
+                            <Frame CornerRadius="10" Padding="0"
+                                   HorizontalOptions="FillAndExpand" Margin="5" VerticalOptions="Center"
+                                   HasShadow="True" BackgroundColor="White">
+                                <Label x:Name="lblFund" Text="{Binding TotalIncome}" Style="{StaticResource Key=DashboardValueLabel}"/>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding DataTappedCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="1" Style="{StaticResource Key=DashboardFrame}">
+                        <StackLayout Padding="10,5,10,5"   
+                             Orientation="Horizontal" 
+                             BackgroundColor="White">
+                            <Label Text="My Expenses:" Style="{StaticResource Key=DashboardLabel}"/>
+                            <Frame CornerRadius="10" Padding="0"
+                                   HorizontalOptions="FillAndExpand" Margin="5" VerticalOptions="Center"
+                                   HasShadow="True" BackgroundColor="White">
+                                <Label x:Name="lblExpense" Text="{Binding TotalExpenses}" Style="{StaticResource Key=DashboardValueLabel}"/>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"  Command="{Binding DataTappedCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="2" Style="{StaticResource Key=DashboardFrame}">
+                        <StackLayout Padding="10,5,10,5"   
+                             Orientation="Horizontal" 
+                             BackgroundColor="White">
+                            <Label  Text="My Savings:" Style="{StaticResource Key=DashboardLabel}"/>
+                            <Frame CornerRadius="10" Padding="0"
+                                   HorizontalOptions="FillAndExpand" Margin="5" VerticalOptions="Center"
+                                   HasShadow="True" BackgroundColor="White">
+                                <Label x:Name="lblActualSavings" Text="{Binding TotalSavings}" Style="{StaticResource Key=DashboardValueLabel}"/>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1"  Command="{Binding DataTappedCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="3" Style="{StaticResource Key=DashboardFrame}">
+                        <StackLayout Padding="10,5,10,5"   
+                             Orientation="Horizontal" 
+                             BackgroundColor="White">
+                            <Label   Text="Remaining Balance:" Style="{StaticResource Key=DashboardLabel}"/>
+                            <Frame CornerRadius="10" Padding="0"
+                                   HorizontalOptions="FillAndExpand" Margin="5" VerticalOptions="Center"
+                                   HasShadow="True" BackgroundColor="White">
+                                <Label x:Name="lblBalance" Text="{Binding TotalBalance}" Style="{StaticResource Key=DashboardValueLabel}"/>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="4" Style="{StaticResource Key=DashboardFrame}">
+                        <StackLayout Padding="10,5,10,5"   
+                             Orientation="Horizontal" 
+                             BackgroundColor="White">
+                            <Label  Text="Target Savings:" Style="{StaticResource Key=DashboardLabel}"/>
+                            <Frame CornerRadius="10" Padding="0"
+                                   HorizontalOptions="FillAndExpand" Margin="5" VerticalOptions="Center"
+                                   HasShadow="True" BackgroundColor="White">
+                                <Label x:Name="lblSavings" Text="{Binding TargetSavings}" Style="{StaticResource Key=DashboardValueLabel}"/>
+                            </Frame>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding TargetTappedCommand}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="5" Style="{StaticResource Key=DashboardFrame}" Margin="2,2,2,2" Padding="2">
+                        <chart:SfChart Margin="5" HeightRequest="200" >
+                            <chart:SfChart.Title>
+                                <chart:ChartTitle Text="Financial State"/>
+                            </chart:SfChart.Title>
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend/>
+                            </chart:SfChart.Legend>
+                            <chart:PieSeries ItemsSource="{Binding PieChart}" XBindingPath="Type" YBindingPath="Actual" DataMarkerPosition="OutsideExtended">
+                                <chart:PieSeries.DataMarker>
+                                    <chart:ChartDataMarker ShowLabel="True" LabelContent="DataMarkerLabel">
+                                        <chart:ChartDataMarker.LabelStyle>
+                                            <chart:DataMarkerLabelStyle LabelFormat="##.##"/>
+                                        </chart:ChartDataMarker.LabelStyle>
+                                    </chart:ChartDataMarker>
+                                </chart:PieSeries.DataMarker>
+                            </chart:PieSeries>
+                        </chart:SfChart>
+                    </Frame>
+                    <Frame Grid.Row="6" Style="{StaticResource Key=DashboardFrame}" Margin="2,2,2,2" Padding="2">
+                        <chart:SfChart Margin="5" HeightRequest="200" >
+                            <chart:SfChart.Title>
+                                <chart:ChartTitle Text="Target Savings vs Actual Savings"/>
+                            </chart:SfChart.Title>
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend/>
+                            </chart:SfChart.Legend>
+                            <chart:SfChart.PrimaryAxis>
+                                <chart:CategoryAxis>
+                                    <chart:CategoryAxis.Title>
+                                        <chart:ChartAxisTitle Text="Savings"/>
+                                    </chart:CategoryAxis.Title>
+                                </chart:CategoryAxis>
+                            </chart:SfChart.PrimaryAxis>
+                            <chart:SfChart.SecondaryAxis>
+                                <chart:NumericalAxis>
+                                    <chart:NumericalAxis.LabelStyle>
+                                        <chart:ChartAxisLabelStyle LabelFormat="##.##"/>
+                                    </chart:NumericalAxis.LabelStyle>
+                                </chart:NumericalAxis>
+                            </chart:SfChart.SecondaryAxis>
+                            <chart:SfChart.Series>
+                                <chart:ColumnSeries ItemsSource="{Binding BarChart}" XBindingPath="Type" YBindingPath="Target" DataMarkerPosition="Top" Label="Target"/>
+                                <!--<chart:ColumnSeries.DataMarker>
+                                    <chart:ChartDataMarker ShowLabel="True" LabelContent="DataMarkerLabel">
+                                        <chart:ChartDataMarker.LabelStyle>
+                                            <chart:DataMarkerLabelStyle LabelFormat="##.##"/>
+                                        </chart:ChartDataMarker.LabelStyle>
+                                    </chart:ChartDataMarker>
+                                </chart:ColumnSeries.DataMarker>-->
+
+                                <chart:ColumnSeries ItemsSource="{Binding BarChart}" XBindingPath="Type" YBindingPath="Actual" DataMarkerPosition="Top" Label="Actual"/>
+                                <!--<chart:ColumnSeries.DataMarker>
+                                    <chart:ChartDataMarker ShowLabel="True" LabelContent="DataMarkerLabel">
+                                        <chart:ChartDataMarker.LabelStyle>
+                                            <chart:DataMarkerLabelStyle LabelFormat="##.##"/>
+                                        </chart:ChartDataMarker.LabelStyle>
+                                    </chart:ChartDataMarker>
+                                </chart:ColumnSeries.DataMarker>-->
+
+                            </chart:SfChart.Series>
+                        </chart:SfChart>
+                    </Frame>
+                </Grid>
+            </ScrollView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

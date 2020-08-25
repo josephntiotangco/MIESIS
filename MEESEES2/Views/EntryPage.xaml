@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MEESEES2.Controls"
+             Title="{Binding Title}"
+             x:Class="MEESEES2.Views.EntryPage">
+    <ScrollView>
+        <Grid Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Frame Grid.Row="0" Padding="15" CornerRadius="10" Margin="10,5,10,5">
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Orientation="Horizontal" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                            <Label Text="Income" FontSize="10" Padding="0" Margin="2,0,2,0" FontAttributes="Bold"/>
+                            <Switch x:Name="swtIncome" Margin="0" IsToggled="{Binding IsIncomeToggled}" Toggled="OnSwitchToggled"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                            <Label Text="Expense" FontSize="10" Padding="0" Margin="2,0,2,0" FontAttributes="Bold"/>
+                            <Switch x:Name="swtExpense" Margin="0" IsToggled="{Binding IsExpenseToggled}" Toggled="OnSwitchToggled"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Grid.Column="2" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                            <Label Text="Savings" FontSize="10" Padding="0" Margin="2,0,2,0" FontAttributes="Bold"/>
+                            <Switch x:Name="swtSavings" Margin="0" IsToggled="{Binding IsSavingsToggled}" Toggled="OnSwitchToggled"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <StackLayout Grid.Row="1">
+                    <controls:CustomPicker Style="{StaticResource Key=InputCustomPicker}" Placeholder="{Binding PickerPlaceholder}" ItemsSource="{Binding Categories}" ItemDisplayBinding="{Binding Description}" SelectedItem="{Binding SelectedCategory}" />
+                    <controls:CustomDatePicker Style="{StaticResource Key=InputCustomDatePicker}" Date="{Binding SelectedDate}" x:Name="dpkTransDate"/>
+                    <controls:CustomEntry Style="{StaticResource Key=DataInputEntry}" Text="{Binding Remarks}" Margin="30,0,30,0" Placeholder="REMARKS / DESCRIPTION"/>
+                    <controls:CustomEntry Style="{StaticResource Key=DataInputEntry}" Text="{Binding Amount}" Keyboard="Numeric" Margin="30,0,30,0" Placeholder="AMOUNT"/>
+                    <Button Style="{StaticResource Key=CustomButton}" Margin="30,0,30,0" Text="SAVE" Command="{Binding SaveCommand}"/>
+                </StackLayout>
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>

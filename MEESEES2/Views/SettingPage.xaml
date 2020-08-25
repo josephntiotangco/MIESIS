@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MEESEES2.Controls"
+             Title="Settings"
+             x:Class="MEESEES2.Views.SettingPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Vertical" Grid.Row="0">
+                    <Label Text="Target Savings :" Style="{StaticResource Key=InputLabel}"/>
+                    <controls:CustomEntry Style="{StaticResource Key=DataInputEntry}" Text="{Binding Amount}" Keyboard="Numeric" Margin="30,0,30,0" Placeholder="AMOUNT"/>
+                </StackLayout>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Notification :"  Grid.Column="0" Style="{StaticResource Key=InputLabel}"/>
+                    <Switch IsToggled="{Binding IsNotify}" Grid.Column="1" HorizontalOptions="Start"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Reset Transactions:" Grid.Column="0" Style="{StaticResource Key=InputLabel}"/>
+                    <ImageButton Source="pasteltmachine25.png" BackgroundColor="Transparent" Grid.Column="1" HorizontalOptions="Start"  HeightRequest="30" WidthRequest="30" Clicked="OnResetClicked"/>
+                </Grid>
+            </Grid>
+            <StackLayout Grid.Row="1">
+                <Button Style="{StaticResource Key=CustomButton}" Command="{Binding SaveSettingsCommand}" Text="SAVE" Margin="30,0,30,0"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

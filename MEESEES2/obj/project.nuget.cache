@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "YfSoyHyyW8nuRhbn+fLE9f1ZIcFWh9je+nGHwkMT3rtln06Tvl6jy/+2OvKlIXpjCTY5dUeEqbRSUuxu8q6+sA==",
+  "success": true,
+  "projectFilePath": "D:\\MY FILES\\MY PROJECTS\\GitHub\\MEESEES2\\MEESEES2\\MEESEES2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\iRipple\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.3\\sqlitepclraw.lib.e_sqlite3.2.0.3.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.3\\sqlitepclraw.provider.e_sqlite3.2.0.3.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.licensing\\18.2.0.54\\syncfusion.licensing.18.2.0.54.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.core\\18.2.0.54\\syncfusion.xamarin.core.18.2.0.54.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.sfchart\\18.2.0.54\\syncfusion.xamarin.sfchart.18.2.0.54.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\xamarin.forms\\4.8.0.1269\\xamarin.forms.4.8.0.1269.nupkg.sha512"
+  ],
+  "logs": []
+}
