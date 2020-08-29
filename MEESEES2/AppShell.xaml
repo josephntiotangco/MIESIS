@@ -8,15 +8,15 @@
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource Key=PrimaryColor}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource Key=NormalTextColor}" />
                 <Setter Property="Shell.TitleColor" Value="{StaticResource Key=NormalTextColor}" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.DisabledColor" Value="Gray" />
                 <!--default base on visual studio template-->
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="Gray" />
                 <!--default base on visual studio template-->
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Key=PrimaryColor}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource Key=NormalTextColor}"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="Gray"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Key=NormalTextColor}"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}"/>
@@ -62,7 +62,7 @@
     <ShellItem>
         <ShellContent Route="LoginPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}"/>
     </ShellItem>
-
+    
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Home" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" Icon="pastelchart25.png"/>
         <Tab Title="My Data" Icon="pastelcashbook25.png">

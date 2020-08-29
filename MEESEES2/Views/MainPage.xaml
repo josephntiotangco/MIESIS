@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:MEESEES2.Controls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              Title="Dashboard"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              x:Class="MEESEES2.Views.MainPage">
@@ -37,6 +38,7 @@
             <ScrollView Grid.Row="2">
                 <Grid Grid.Row="2" Margin="5,10,5,10">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
@@ -178,6 +180,42 @@
                                 </chart:ColumnSeries.DataMarker>-->
 
                             </chart:SfChart.Series>
+                        </chart:SfChart>
+                    </Frame>
+                    <Frame Grid.Row="7" Style="{StaticResource Key=DashboardFrame}" Margin="2,2,2,2" Padding="2">
+                        <chart:SfChart Margin="5" HeightRequest="200" >
+                            <chart:SfChart.Title>
+                                <chart:ChartTitle Text="Expense Breakdown"/>
+                            </chart:SfChart.Title>
+                            
+                            <chart:SfChart.Legend>
+                                <chart:ChartLegend DockPosition="Right" Orientation="Vertical" OverflowMode="Scroll">
+                                    <chart:ChartLegend.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackLayout Orientation="Horizontal" Margin="0" Padding="0">
+                                                <BoxView Color="{Binding IconColor}" HeightRequest="5" WidthRequest="5" HorizontalOptions="Center" VerticalOptions="Center" Margin="0"/>
+                                                <Label Text="{Binding DataPoint.Type}" FontSize="7" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" VerticalTextAlignment="Center" Margin="0"/>
+                                            </StackLayout>
+                                        </DataTemplate>
+                                    </chart:ChartLegend.ItemTemplate>
+                                    <!--<chart:ChartLegend OverflowMode="Wrap" DockPosition="Right" Orientation="Vertical" StrokeColor="Black" CornerRadius="5" StrokeWidth="2" BackgroundColor="{StaticResource Key=NavigationBarColor}" Margin="5">-->
+                                    <!--<chart:ChartLegend.StrokeDashArray>
+                                        <x:Array Type="{x:Type sys:Double}">
+                                            <sys:Double>3</sys:Double>
+                                            <sys:Double>3</sys:Double>
+                                        </x:Array>
+                                    </chart:ChartLegend.StrokeDashArray>-->
+                                </chart:ChartLegend>
+                            </chart:SfChart.Legend>
+                            <chart:PieSeries ItemsSource="{Binding PieChart1}" XBindingPath="Type" YBindingPath="Actual" DataMarkerPosition="OutsideExtended" ExplodeAll="True" ExplodeRadius="10">
+                                <chart:PieSeries.DataMarker>
+                                    <chart:ChartDataMarker ShowLabel="True" LabelContent="DataMarkerLabel">
+                                        <chart:ChartDataMarker.LabelStyle>
+                                            <chart:DataMarkerLabelStyle FontSize="7" LabelFormat="##.##"/>
+                                        </chart:ChartDataMarker.LabelStyle>
+                                    </chart:ChartDataMarker>
+                                </chart:PieSeries.DataMarker>
+                            </chart:PieSeries>
                         </chart:SfChart>
                     </Frame>
                 </Grid>

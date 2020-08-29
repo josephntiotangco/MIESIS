@@ -24,7 +24,7 @@ namespace MEESEES2.Views
             dpkFrom.SetValue(DatePicker.MinimumDateProperty, DateTime.Today.AddMonths(-12));
             dpkFrom.SetValue(DatePicker.MaximumDateProperty, DateTime.Today);
             dpkTo.SetValue(DatePicker.MinimumDateProperty, DateTime.Today.AddMonths(-12));
-            dpkTo.SetValue(DatePicker.MaximumDateProperty, DateTime.Today);
+            dpkTo.SetValue(DatePicker.MaximumDateProperty, DateTime.Today.AddMonths(12));
             dataList.FromDate = DateTime.Today.AddDays(-30);
             dataList.ToDate = DateTime.Today;
         }

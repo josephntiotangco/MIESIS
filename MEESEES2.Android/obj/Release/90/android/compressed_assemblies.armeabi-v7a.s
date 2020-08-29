@@ -55,7 +55,7 @@
 
 	/* 3: MEESEES2.dll */
 	/* uncompressed_file_size */
-	.long	202752
+	.long	207360
 	/* loaded */
 	.byte	0
 	/* data */
@@ -154,7 +154,7 @@
 
 	/* 14: Syncfusion.SfChart.XForms.Android.dll */
 	/* uncompressed_file_size */
-	.long	927744
+	.long	928256
 	/* loaded */
 	.byte	0
 	/* data */

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:MEESEES2.ViewModels"
+             Title="About"
              x:Class="MEESEES2.Views.AboutPage">
     <ContentPage.BindingContext>
         <vm:AboutViewModel />

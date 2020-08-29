@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "97kIaQzfdo2h7N/ane3eNzBuQthsgv+pjSgkdADmTkTbwf/PzzagBEiwqJ9LdDXYBcQ71TckW75R/2Vn2WFEdQ==",
+  "dgSpecHash": "daxndh8ElR6NMycYZVRIZAyOgb82WU2g5atIDprzEqVTYmW5T/0P/dKfmd4Yx3EOXtSKF6QRhwfaXILNRm6j0A==",
   "success": true,
   "projectFilePath": "D:\\MY FILES\\MY PROJECTS\\GitHub\\MEESEES2\\MEESEES2.Android\\MEESEES2.Android.csproj",
   "expectedPackageFiles": [
@@ -9,9 +9,9 @@
     "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3.android\\2.0.3\\sqlitepclraw.lib.e_sqlite3.android.2.0.3.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.0.3\\sqlitepclraw.provider.e_sqlite3.2.0.3.nupkg.sha512",
-    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.licensing\\18.2.0.54\\syncfusion.licensing.18.2.0.54.nupkg.sha512",
-    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.core\\18.2.0.54\\syncfusion.xamarin.core.18.2.0.54.nupkg.sha512",
-    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.sfchart\\18.2.0.54\\syncfusion.xamarin.sfchart.18.2.0.54.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.licensing\\18.2.0.55\\syncfusion.licensing.18.2.0.55.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.core\\18.2.0.55\\syncfusion.xamarin.core.18.2.0.55.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.sfchart\\18.2.0.55\\syncfusion.xamarin.sfchart.18.2.0.55.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",

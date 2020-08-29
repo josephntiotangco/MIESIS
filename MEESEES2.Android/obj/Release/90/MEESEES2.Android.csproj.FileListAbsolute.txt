@@ -481,3 +481,4 @@ D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2.Android\obj\Release\90\stamp\_C
 D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2.Android\obj\Release\90\stamp\_GenerateJavaStubs.stamp
 D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2.Android\obj\Release\90\stamp\_GeneratePackageManagerJava.stamp
 D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2.Android\obj\Release\90\stamp\_ResolveLibraryProjectImports.stamp
+D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2.Android\obj\Release\90\res\drawable\miesishome150x.png

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gyxqU6MV2XKEwU+QGtddf/2gVRTGnqPfMs2i/RzBmxfRr0yA9L50aYpUfQX0ynBsunpKv2AdEZqdAkeSrB+22w==",
+  "dgSpecHash": "8aBNd7sCDNhGoiAyFrPN8EYw/6cSjGnSw4MJ3nFONl1toA1/WzDAC295eUJcKHXR7Kxr28TmgZsbk1/lyvADlg==",
   "success": true,
   "projectFilePath": "D:\\MY FILES\\MY PROJECTS\\GitHub\\MEESEES2\\MEESEES2.iOS\\MEESEES2.iOS.csproj",
   "expectedPackageFiles": [
@@ -8,9 +8,9 @@
     "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.3\\sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
-    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.licensing\\18.2.0.54\\syncfusion.licensing.18.2.0.54.nupkg.sha512",
-    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.core\\18.2.0.54\\syncfusion.xamarin.core.18.2.0.54.nupkg.sha512",
-    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.sfchart\\18.2.0.54\\syncfusion.xamarin.sfchart.18.2.0.54.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.licensing\\18.2.0.55\\syncfusion.licensing.18.2.0.55.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.core\\18.2.0.55\\syncfusion.xamarin.core.18.2.0.55.nupkg.sha512",
+    "C:\\Users\\iRipple\\.nuget\\packages\\syncfusion.xamarin.sfchart\\18.2.0.55\\syncfusion.xamarin.sfchart.18.2.0.55.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\iRipple\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",

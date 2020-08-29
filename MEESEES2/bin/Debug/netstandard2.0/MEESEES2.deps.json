@@ -10,7 +10,7 @@
       "MEESEES2/1.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.3",
-          "Syncfusion.Xamarin.SfChart": "18.2.0.54",
+          "Syncfusion.Xamarin.SfChart": "18.2.0.55",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1269",
           "sqlite-net-pcl": "1.7.335"
@@ -72,35 +72,35 @@
           }
         }
       },
-      "Syncfusion.Licensing/18.2.0.54": {
+      "Syncfusion.Licensing/18.2.0.55": {
         "runtime": {
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {
-            "assemblyVersion": "18.2.0.54",
-            "fileVersion": "18.2.0.54"
+            "assemblyVersion": "18.2.0.55",
+            "fileVersion": "18.2.0.55"
           }
         }
       },
-      "Syncfusion.Xamarin.Core/18.2.0.54": {
+      "Syncfusion.Xamarin.Core/18.2.0.55": {
         "dependencies": {
-          "Syncfusion.Licensing": "18.2.0.54",
+          "Syncfusion.Licensing": "18.2.0.55",
           "Xamarin.Forms": "4.8.0.1269"
         },
         "runtime": {
           "lib/netstandard2.0/Syncfusion.Core.XForms.dll": {
-            "assemblyVersion": "18.2451.0.54",
-            "fileVersion": "18.2451.0.54"
+            "assemblyVersion": "18.2451.0.55",
+            "fileVersion": "18.2451.0.55"
           }
         }
       },
-      "Syncfusion.Xamarin.SfChart/18.2.0.54": {
+      "Syncfusion.Xamarin.SfChart/18.2.0.55": {
         "dependencies": {
-          "Syncfusion.Xamarin.Core": "18.2.0.54",
+          "Syncfusion.Xamarin.Core": "18.2.0.55",
           "Xamarin.Forms": "4.8.0.1269"
         },
         "runtime": {
           "lib/netstandard2.0/Syncfusion.SfChart.XForms.dll": {
-            "assemblyVersion": "18.2451.0.54",
-            "fileVersion": "18.2451.0.54"
+            "assemblyVersion": "18.2451.0.55",
+            "fileVersion": "18.2451.0.55"
           }
         }
       },
@@ -225,26 +225,26 @@
       "path": "sqlitepclraw.provider.e_sqlite3/2.0.3",
       "hashPath": "sqlitepclraw.provider.e_sqlite3.2.0.3.nupkg.sha512"
     },
-    "Syncfusion.Licensing/18.2.0.54": {
+    "Syncfusion.Licensing/18.2.0.55": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-xrf92qSI4E2B+HCHqolNqp+bAVgh1XGOq4NrciNP6rDMUBm0oS1mZtuxEwBLUE1FUMsngXxIR76t0SackRK/QQ==",
-      "path": "syncfusion.licensing/18.2.0.54",
-      "hashPath": "syncfusion.licensing.18.2.0.54.nupkg.sha512"
+      "sha512": "sha512-uRj2TsBly9Mv35iPsOGiyHnz0z2+jd4WvK+vCdty4jF+G64CglHChdexWXaUkMd9wqkYJfp8BlLthqn4ogiMBg==",
+      "path": "syncfusion.licensing/18.2.0.55",
+      "hashPath": "syncfusion.licensing.18.2.0.55.nupkg.sha512"
     },
-    "Syncfusion.Xamarin.Core/18.2.0.54": {
+    "Syncfusion.Xamarin.Core/18.2.0.55": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-63uG7StCLIb0P/HqOHdM2AIYFIe1XqhD1mxTV6fkonNdI3TT/LcNN6Vya7K7I5PfbERa9mKjrFD4Y1rAN+xxDA==",
-      "path": "syncfusion.xamarin.core/18.2.0.54",
-      "hashPath": "syncfusion.xamarin.core.18.2.0.54.nupkg.sha512"
+      "sha512": "sha512-/lU79GxueAxpY9qt5zJ/morklmkuEzsNAz2YZF5jTAw8bmz8gw7wLEf2eB8//8S3EOPxRnprfy5jz20aXDQECg==",
+      "path": "syncfusion.xamarin.core/18.2.0.55",
+      "hashPath": "syncfusion.xamarin.core.18.2.0.55.nupkg.sha512"
     },
-    "Syncfusion.Xamarin.SfChart/18.2.0.54": {
+    "Syncfusion.Xamarin.SfChart/18.2.0.55": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jpwZ9O/uIQbWiU5S72SozfPvM1j+Ox4o9rKH7Qz2fNB4cZdhiadDe1E/w8+7Wu+kJthntdN5KkQGwL0gc+y8Ew==",
-      "path": "syncfusion.xamarin.sfchart/18.2.0.54",
-      "hashPath": "syncfusion.xamarin.sfchart.18.2.0.54.nupkg.sha512"
+      "sha512": "sha512-ORXZpE1bNMqw0oewv9u/qnqHZn4CkLQIciQVc+BRxbD0xz116Ho6NveFgcAFCCFox2ALTD5tSWGRy/1/urA8Zg==",
+      "path": "syncfusion.xamarin.sfchart/18.2.0.55",
+      "hashPath": "syncfusion.xamarin.sfchart.18.2.0.55.nupkg.sha512"
     },
     "System.Buffers/4.4.0": {
       "type": "package",

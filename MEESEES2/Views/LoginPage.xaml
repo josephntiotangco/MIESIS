@@ -19,7 +19,7 @@
                     </RadialGradientBrush>
                 </Grid.Background>
                 <StackLayout Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Image Source="meesees80.png" />
+                    <Image Source="miesisHome150x.png" />
                     <Grid  HorizontalOptions="Center" VerticalOptions="Center" Margin="30,0,30,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>

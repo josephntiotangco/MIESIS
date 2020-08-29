@@ -117,6 +117,16 @@ namespace MEESEES2.ViewModels
                 OnPropertyChanged(nameof(UserInputs));
             }
         }
+        private ObservableCollection<UserDataViewModel> _detailedInputs;
+        public ObservableCollection<UserDataViewModel> DetailedInputs
+        {
+            get { return _detailedInputs; }
+            set
+            {
+                SetValue(ref _detailedInputs, value);
+                OnPropertyChanged(nameof(DetailedInputs));
+            }
+        }
         private ObservableCollection<UserSettingViewModel> _settings;
         public ObservableCollection<UserSettingViewModel> Settings
         {
@@ -157,6 +167,16 @@ namespace MEESEES2.ViewModels
                 OnPropertyChanged(nameof(IsRefreshing));
             }
         }
+        private ObservableCollection<ChartData> _pieChart1;
+        public ObservableCollection<ChartData> PieChart1
+        {
+            get { return _pieChart1; }
+            set
+            {
+                SetValue(ref _pieChart1, value);
+                OnPropertyChanged(nameof(PieChart1));
+            }
+        }
         public ICommand RefreshCommand { get; private set; }
         public ICommand LoadDataCommand { get; private set; }
         public ICommand LoadSettingCommand { get; private set; }
@@ -190,13 +210,19 @@ namespace MEESEES2.ViewModels
             await Shell.Current.GoToAsync("//SettingPage");
         }
         public async Task LoadData()
-        {   
+        {
             UserInputs = new ObservableCollection<UserDataViewModel>();
             UserInputs.Clear();
+            DetailedInputs = new ObservableCollection<UserDataViewModel>();
+            DetailedInputs.Clear();
 
             var usersData = await _generalInterface.GetUserDataByPin(Globals.currentUser.Pin);
             foreach (UserData data in usersData)
+            {
                 UserInputs.Add(new UserDataViewModel(data, "new"));
+                DetailedInputs.Add(new UserDataViewModel(data, ""));
+            }
+
 
             TotalIncome = UserInputs.Where(d => d.Type == "I").Sum(d => d.Amount);
             TotalExpenses = UserInputs.Where(d => d.Type == "E").Sum(d => d.Amount);
@@ -224,6 +250,8 @@ namespace MEESEES2.ViewModels
         {
             UserInputs = new ObservableCollection<UserDataViewModel>();
             UserInputs.Clear();
+            DetailedInputs = new ObservableCollection<UserDataViewModel>();
+            DetailedInputs.Clear();
 
             var usersData = await _generalInterface.GetUserDataByPin(Globals.currentUser.Pin);
             foreach (UserData data in usersData)
@@ -231,6 +259,7 @@ namespace MEESEES2.ViewModels
                 if(data.TransDate >= FromDate && data.TransDate <= ToDate)
                 {
                     UserInputs.Add(new UserDataViewModel(data, "new"));
+                    DetailedInputs.Add(new UserDataViewModel(data, ""));
                 }
             }
 
@@ -297,6 +326,48 @@ namespace MEESEES2.ViewModels
                 Target = TargetSavings
             });
 
+            PieChart1 = new ObservableCollection<ChartData>();
+            PieChart1.Clear();
+            foreach(UserDataViewModel data in DetailedInputs)
+            {
+                if(data.Type == "Expense")
+                {
+                    if(PieChart1.Count > 0)
+                    {
+                        var chartdata = PieChart1.FirstOrDefault(d => d.Type == data.Category);
+                        if(chartdata != null)
+                        {
+                            decimal currentValue = chartdata.Actual;
+                            PieChart1.Remove(chartdata);
+                            PieChart1.Add(new ChartData
+                            {
+                                Actual = currentValue + data.Amount,
+                                Type = data.Category,
+                                Target = 0
+                            });
+                            //chartdata.Actual = chartdata.Actual + data.Amount;
+                        }
+                        else
+                        {
+                            PieChart1.Add(new ChartData
+                            {
+                                Actual = data.Amount,
+                                Type = data.Category,
+                                Target = 0
+                            });
+                        }
+                    }
+                    else
+                    {
+                        PieChart1.Add(new ChartData
+                        {
+                            Actual = data.Amount,
+                            Type = data.Category,
+                            Target = 0
+                        });
+                    }
+                }
+            }
         }
 
     }
