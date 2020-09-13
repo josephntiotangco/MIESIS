@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEESEES2.Controls.FlyoutImageView">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                <GradientStop Color="{StaticResource Key=NavigationBarColor}" Offset="0.1"/>
+                <GradientStop Color="{StaticResource Key=AppBackgroundColor}" Offset="1.0"/>
+            </LinearGradientBrush>
+            <!--<RadialGradientBrush Center="0.5,0.5" Radius="0.5">
+                <GradientStop Color="{StaticResource Key=NavigationBarColor}" Offset="0.1"/>
+                <GradientStop Color="{StaticResource Key=AppBackgroundColor}" Offset="1.0"/>
+            </RadialGradientBrush>-->
+        </Grid.Background>
+        <Image Aspect="AspectFit" Source="miesisHome150x.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="5"/>
+    </Grid>
+</ContentView>

@@ -142,7 +142,7 @@ namespace MEESEES2.Commons
         public async Task ResetUserData(string pin)
         {
             var userdatas = await this.GetUserDataByPin(pin);
-            if(userdatas.Count() != 0)
+            if (userdatas.Count() != 0)
             {
                 try
                 {

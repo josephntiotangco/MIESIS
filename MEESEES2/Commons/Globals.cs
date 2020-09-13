@@ -9,6 +9,17 @@ namespace MEESEES2.Commons
 {
     public class Globals
     {
+        #region AdMob
+        //private static int _adCounter;
+        public static string AppId = "ca-app-pub-6838059012127071~6961685595";
+        public static string PopAdId = "ca-app-pub-6838059012127071/5844860688";
+        public static string TestPopAdId = "ca-app-pub-3940256099942544/1033173712";
+        public static bool isAdClosed;
+        public static int PopAdCount;
+        public static string BannerAdId;
+
+        #endregion
+
         //all static variables here
         #region Users
         public static bool isUsersLoaded;

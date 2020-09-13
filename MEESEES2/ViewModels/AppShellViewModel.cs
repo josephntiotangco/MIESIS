@@ -22,7 +22,7 @@ namespace MEESEES2.ViewModels
 
         private async Task LogOut()
         {
-            if(await _pageService.DisplayAlert("CONFIRMATION","Are you sure you want to logout?", "YES", "NO"))
+            if (await _pageService.DisplayAlert("CONFIRMATION", "Are you sure you want to logout?", "YES", "NO"))
             {
                 Globals.isUsersLoaded = false;
                 Globals.Users = new System.Collections.ObjectModel.ObservableCollection<UserViewModel>();

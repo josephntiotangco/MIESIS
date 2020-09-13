@@ -8,7 +8,7 @@
 .L.compressed_assembly_descriptors:
 	/* 0: FormsViewGroup.dll */
 	/* uncompressed_file_size */
-	.word	14336
+	.word	15360
 	/* loaded */
 	.byte	0
 	/* data */
@@ -26,7 +26,7 @@
 
 	/* 2: MEESEES2.Android.dll */
 	/* uncompressed_file_size */
-	.word	224256
+	.word	227840
 	/* loaded */
 	.byte	0
 	/* data */
@@ -35,7 +35,7 @@
 
 	/* 3: MEESEES2.dll */
 	/* uncompressed_file_size */
-	.word	207360
+	.word	216576
 	/* loaded */
 	.byte	0
 	/* data */
@@ -44,7 +44,7 @@
 
 	/* 4: Mono.Android.dll */
 	/* uncompressed_file_size */
-	.word	2062848
+	.word	2064896
 	/* loaded */
 	.byte	0
 	/* data */
@@ -161,7 +161,7 @@
 
 	/* 17: System.Core.dll */
 	/* uncompressed_file_size */
-	.word	340992
+	.word	340480
 	/* loaded */
 	.byte	0
 	/* data */
@@ -593,7 +593,7 @@
 
 	/* 65: Xamarin.Forms.Platform.Android.dll */
 	/* uncompressed_file_size */
-	.word	792576
+	.word	791552
 	/* loaded */
 	.byte	0
 	/* data */
@@ -602,7 +602,7 @@
 
 	/* 66: Xamarin.Forms.Platform.dll */
 	/* uncompressed_file_size */
-	.word	128640
+	.word	130400
 	/* loaded */
 	.byte	0
 	/* data */
@@ -618,23 +618,86 @@
 	.zero	3
 	.xword	compressed_assembly_data_67
 
-	/* 68: mscorlib.dll */
+	/* 68: Xamarin.GooglePlayServices.Ads.Base.dll */
 	/* uncompressed_file_size */
-	.word	2090496
+	.word	5120
 	/* loaded */
 	.byte	0
 	/* data */
 	.zero	3
 	.xword	compressed_assembly_data_68
 
-	.size	.L.compressed_assembly_descriptors, 1104
+	/* 69: Xamarin.GooglePlayServices.Ads.Identifier.dll */
+	/* uncompressed_file_size */
+	.word	6144
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.xword	compressed_assembly_data_69
+
+	/* 70: Xamarin.GooglePlayServices.Ads.Lite.dll */
+	/* uncompressed_file_size */
+	.word	109568
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.xword	compressed_assembly_data_70
+
+	/* 71: Xamarin.GooglePlayServices.Ads.dll */
+	/* uncompressed_file_size */
+	.word	6144
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.xword	compressed_assembly_data_71
+
+	/* 72: Xamarin.GooglePlayServices.Basement.dll */
+	/* uncompressed_file_size */
+	.word	29184
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.xword	compressed_assembly_data_72
+
+	/* 73: Xamarin.GooglePlayServices.Measurement.Base.dll */
+	/* uncompressed_file_size */
+	.word	5632
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.xword	compressed_assembly_data_73
+
+	/* 74: Xamarin.GooglePlayServices.Measurement.Sdk.Api.dll */
+	/* uncompressed_file_size */
+	.word	6656
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.xword	compressed_assembly_data_74
+
+	/* 75: mscorlib.dll */
+	/* uncompressed_file_size */
+	.word	2090496
+	/* loaded */
+	.byte	0
+	/* data */
+	.zero	3
+	.xword	compressed_assembly_data_75
+
+	.size	.L.compressed_assembly_descriptors, 1216
 	.section	.data.compressed_assemblies,"aw",@progbits
 	.type	compressed_assemblies, @object
 	.p2align	3
 	.global	compressed_assemblies
 compressed_assemblies:
 	/* count */
-	.word	69
+	.word	76
 	/* descriptors */
 	.zero	4
 	.xword	.L.compressed_assembly_descriptors

@@ -44,7 +44,7 @@
           "dependencies": {
             "Syncfusion.Xamarin.SfChart": {
               "target": "Package",
-              "version": "[18.2.0.55, )"
+              "version": "[18.2.0.56, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -52,7 +52,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.8.0.1269, )"
+              "version": "[4.8.0.1364, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",
@@ -119,7 +119,7 @@
             },
             "Syncfusion.Xamarin.SfChart": {
               "target": "Package",
-              "version": "[18.2.0.55, )"
+              "version": "[18.2.0.56, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",
@@ -127,7 +127,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.8.0.1269, )"
+              "version": "[4.8.0.1364, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",

@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace MEESEES2.ViewModels
 {
-    public class DashboardViewModel :BaseViewModel
+    public class DashboardViewModel : BaseViewModel
     {
         IGeneralInterface _generalInterface;
         IPageService _pageService;
@@ -229,7 +229,7 @@ namespace MEESEES2.ViewModels
             TotalSavings = UserInputs.Where(d => d.Type == "S").Sum(d => d.Amount);
             TotalBalance = TotalIncome - TotalExpenses - TotalSavings;
 
-            RefreshChart();            
+            RefreshChart();
         }
         public async Task LoadSetting()
         {
@@ -239,36 +239,56 @@ namespace MEESEES2.ViewModels
             var settings = await _generalInterface.GetUserSettingsByPin(Globals.currentUser.Pin);
             foreach (UserSetting setting in settings)
             {
-                if(setting.Code == "SAVAMT")
+                if (setting.Code == "SAVAMT")
                 {
                     Settings.Add(new UserSettingViewModel(setting));
                     TargetSavings = Convert.ToDecimal(setting.Value);
                 }
             }
         }
+        private bool ValidateFromTo() //2020/09/11
+        {
+            if(FromDate > ToDate)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public async Task LoadFilteredData()
         {
-            UserInputs = new ObservableCollection<UserDataViewModel>();
-            UserInputs.Clear();
-            DetailedInputs = new ObservableCollection<UserDataViewModel>();
-            DetailedInputs.Clear();
-
-            var usersData = await _generalInterface.GetUserDataByPin(Globals.currentUser.Pin);
-            foreach (UserData data in usersData)
+            if (ValidateFromTo()) //2020/09/11
             {
-                if(data.TransDate >= FromDate && data.TransDate <= ToDate)
+                UserInputs = new ObservableCollection<UserDataViewModel>();
+                UserInputs.Clear();
+                DetailedInputs = new ObservableCollection<UserDataViewModel>();
+                DetailedInputs.Clear();
+
+                var usersData = await _generalInterface.GetUserDataByPin(Globals.currentUser.Pin);
+                foreach (UserData data in usersData)
                 {
-                    UserInputs.Add(new UserDataViewModel(data, "new"));
-                    DetailedInputs.Add(new UserDataViewModel(data, ""));
+                    if (data.TransDate >= FromDate && data.TransDate <= ToDate)
+                    {
+                        UserInputs.Add(new UserDataViewModel(data, "new"));
+                        DetailedInputs.Add(new UserDataViewModel(data, ""));
+                    }
                 }
+
+                TotalIncome = UserInputs.Where(d => d.Type == "I").Sum(d => d.Amount);
+                TotalExpenses = UserInputs.Where(d => d.Type == "E").Sum(d => d.Amount);
+                TotalSavings = UserInputs.Where(d => d.Type == "S").Sum(d => d.Amount);
+                TotalBalance = TotalIncome - TotalExpenses - TotalSavings;
+
+                RefreshChart();
             }
-
-            TotalIncome = UserInputs.Where(d => d.Type == "I").Sum(d => d.Amount);
-            TotalExpenses = UserInputs.Where(d => d.Type == "E").Sum(d => d.Amount);
-            TotalSavings = UserInputs.Where(d => d.Type == "S").Sum(d => d.Amount);
-            TotalBalance = TotalIncome - TotalExpenses - TotalSavings;
-
-            RefreshChart();
+            else
+            {
+                await _pageService.DisplayAlert("ERROR", "From date must not be greater than To date.", "OK"); //2020/09/11
+                return;
+            }
+           
         }
         public async Task Refresh()
         {
@@ -279,7 +299,7 @@ namespace MEESEES2.ViewModels
         }
         public async Task Show()
         {
-            if(FilterHeight == 0)
+            if (FilterHeight == 0)
             {
                 FilterVisible = true;
                 FilterHeight = 50;
@@ -328,14 +348,14 @@ namespace MEESEES2.ViewModels
 
             PieChart1 = new ObservableCollection<ChartData>();
             PieChart1.Clear();
-            foreach(UserDataViewModel data in DetailedInputs)
+            foreach (UserDataViewModel data in DetailedInputs)
             {
-                if(data.Type == "Expense")
+                if (data.Type == "Expense")
                 {
-                    if(PieChart1.Count > 0)
+                    if (PieChart1.Count > 0)
                     {
                         var chartdata = PieChart1.FirstOrDefault(d => d.Type == data.Category);
-                        if(chartdata != null)
+                        if (chartdata != null)
                         {
                             decimal currentValue = chartdata.Actual;
                             PieChart1.Remove(chartdata);

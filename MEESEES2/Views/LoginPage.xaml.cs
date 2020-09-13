@@ -18,7 +18,7 @@ namespace MEESEES2.Views
         PageService pageService = new PageService();
         public LoginPage()
         {
-            loginModel = new LoginViewModel(sqlDb,pageService);
+            loginModel = new LoginViewModel(sqlDb, pageService);
             InitializeComponent();
             txtPin1.Focus();
         }

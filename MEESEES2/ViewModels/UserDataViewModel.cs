@@ -21,7 +21,7 @@ namespace MEESEES2.ViewModels
 
         public UserDataViewModel(UserData data, string mode)
         {
-            if(mode == "new")
+            if (mode == "new")
             {
                 Id = data.Id;
                 Type = data.Type;
@@ -36,7 +36,7 @@ namespace MEESEES2.ViewModels
             {
                 Id = data.Id;
                 Type = data.Type == "E" ? "Expense" : data.Type == "I" ? "Income" : "Savings";
-                Category = data.Type == "E" ? Globals.ExpenseCategories.Single(c => c.Code == data.Category).Description : data.Type == "S" ? Globals.SavingsCategories.Single(c => c.Code == data.Category).Description 
+                Category = data.Type == "E" ? Globals.ExpenseCategories.Single(c => c.Code == data.Category).Description : data.Type == "S" ? Globals.SavingsCategories.Single(c => c.Code == data.Category).Description
                     : Globals.IncomeCategories.Single(c => c.Code == data.Category).Description;
                 Description = data.Description;
                 Amount = data.Amount;

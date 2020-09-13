@@ -16,9 +16,12 @@ namespace MEESEES2.Views
     {
         public SettingPage()
         {
+            //ca-app-pub-6838059012127071/4882317165
+            //ca-app-pub-3940256099942544/6300978111
+            Globals.BannerAdId = "ca-app-pub-6838059012127071/4882317165";
             SQLiteGeneral sqlDb = new SQLiteGeneral(DependencyService.Get<ISQLiteDb>(), "");
             PageService pageService = new PageService();
-            settingModel = new SettingViewModel(sqlDb,pageService);
+            settingModel = new SettingViewModel(sqlDb, pageService);
             InitializeComponent();
         }
 
@@ -30,6 +33,7 @@ namespace MEESEES2.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            settingModel.ShowPopupAdsCommand.Execute(null); //2020/09/11
             settingModel.LoadUserSettingsCommand.Execute(null);
         }
 

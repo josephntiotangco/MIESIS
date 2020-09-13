@@ -7,7 +7,7 @@ namespace MEESEES2.Models
 {
     public class Category
     {
-        [AutoIncrement,PrimaryKey]
+        [AutoIncrement, PrimaryKey]
         public int Id { get; set; }
         public string Description { get; set; }
         public string Code { get; set; }

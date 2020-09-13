@@ -4,13 +4,15 @@
              xmlns:controls="clr-namespace:MEESEES2.Controls"
              x:Name="dataPage"
              x:Class="MEESEES2.Views.DataPage">
-    <Grid Padding="0">
+    <Grid Padding="0" RowSpacing="0">
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollView Grid.Row="0">
-            <Grid Grid.Row="0">
+        <controls:AdmobControl Grid.Row="0" BackgroundColor="{StaticResource Key=AppBackgroundColor}" HeightRequest="90" HorizontalOptions="FillAndExpand"/>
+        <ScrollView Grid.Row="1">
+            <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -65,7 +67,7 @@
                 </StackLayout>
             </Grid>
         </ScrollView>
-        <ListView Grid.Row="1" x:Name="lstView" ItemsSource="{Binding ListViewData}" ItemSelected="OnDataSelected" SelectedItem="{Binding SelectedData, Mode=TwoWay}" SeparatorColor="Gray" HasUnevenRows="True">
+        <ListView Grid.Row="2" x:Name="lstView" ItemsSource="{Binding ListViewData}" ItemSelected="OnDataSelected" SelectedItem="{Binding SelectedData, Mode=TwoWay}" SeparatorColor="Gray" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

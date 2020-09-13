@@ -16,13 +16,16 @@ namespace MEESEES2.Views
     {
         public DataPage()
         {
+            //ca-app-pub-6838059012127071/6137179779
+            //ca-app-pub-3940256099942544/6300978111
+            Globals.BannerAdId = "ca-app-pub-6838059012127071/6137179779";
             SQLiteGeneral sqlDb = new SQLiteGeneral(DependencyService.Get<ISQLiteDb>(), "");
             PageService pageService = new PageService();
             dataList = new DataListViewModel(sqlDb, pageService);
             InitializeComponent();
 
             dpkFrom.SetValue(DatePicker.MinimumDateProperty, DateTime.Today.AddMonths(-12));
-            dpkFrom.SetValue(DatePicker.MaximumDateProperty, DateTime.Today);
+            dpkFrom.SetValue(DatePicker.MaximumDateProperty, DateTime.Today.AddMonths(12)); //2020/09/11
             dpkTo.SetValue(DatePicker.MinimumDateProperty, DateTime.Today.AddMonths(-12));
             dpkTo.SetValue(DatePicker.MaximumDateProperty, DateTime.Today.AddMonths(12));
             dataList.FromDate = DateTime.Today.AddDays(-30);

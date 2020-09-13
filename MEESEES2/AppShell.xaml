@@ -2,7 +2,10 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:MEESEES2.Views"
+       xmlns:controls="clr-namespace:MEESEES2.Controls"
                Title="MEESEES2"
+       FlyoutBackgroundImage="flyoutbgx.png"
+       FlyoutBackgroundImageAspect="Fill"
              x:Class="MEESEES2.AppShell">
     <Shell.Resources>
         <ResourceDictionary>
@@ -25,19 +28,20 @@
                 <Setter Property="TextColor" Value="{StaticResource Key=NormalTextColor}"/>
             </Style>
             <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
-                <Setter Property="BackgroundColor" Value="{StaticResource Key=SecondaryColor}"/>
+                <!--<Setter Property="BackgroundColor" Value="{StaticResource Key=SecondaryColor}"/>-->
+                <Setter Property="BackgroundColor" Value="{x:Null}"/>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="White" />
+                                    <Setter Property="BackgroundColor" Value="{x:Null}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Key=NormalTextColor}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Key=PrimaryColor}" />
+                                    <Setter Property="BackgroundColor" Value="{x:Null}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -59,10 +63,12 @@
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
+    <Shell.FlyoutHeader>
+        <controls:FlyoutImageView />
+    </Shell.FlyoutHeader>
     <ShellItem>
         <ShellContent Route="LoginPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}"/>
     </ShellItem>
-    
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Home" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" Icon="pastelchart25.png"/>
         <Tab Title="My Data" Icon="pastelcashbook25.png">
@@ -73,5 +79,4 @@
         <ShellContent Title="About" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" Icon="pastelinfo25.png"/>
     </FlyoutItem>
     <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnLogoutClicked" IconImageSource="pastelshutdown25.png"/>
-
 </Shell>

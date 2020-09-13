@@ -4,12 +4,13 @@
              xmlns:controls="clr-namespace:MEESEES2.Controls"
              Title="{Binding Title}"
              x:Class="MEESEES2.Views.EntryPage">
-    <ScrollView>
-        <Grid Padding="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
+
+    <Grid Padding="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <ScrollView Grid.Row="0">
             <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -45,7 +46,8 @@
                     <Button Style="{StaticResource Key=CustomButton}" Margin="30,0,30,0" Text="SAVE" Command="{Binding SaveCommand}"/>
                 </StackLayout>
             </Grid>
+        </ScrollView>
+        <controls:AdmobControl Grid.Row="1" BackgroundColor="{StaticResource Key=AppBackgroundColor}" HeightRequest="90" HorizontalOptions="FillAndExpand"/>
+    </Grid>
 
-        </Grid>
-    </ScrollView>
 </ContentPage>

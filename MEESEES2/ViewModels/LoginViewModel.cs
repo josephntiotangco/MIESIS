@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using MEESEES2.Views;
+using MEESEES2.Services;
 
 namespace MEESEES2.ViewModels
 {
@@ -102,7 +103,7 @@ namespace MEESEES2.ViewModels
         {
             if (Globals.isUsersLoaded) return;
             Globals.Users.Clear();
-           var users = await _generalInterface.GetUsers();
+            var users = await _generalInterface.GetUsers();
             foreach (User user in users)
                 Globals.Users.Add(new UserViewModel(user));
         }
@@ -119,7 +120,7 @@ namespace MEESEES2.ViewModels
         }
         private bool ValidateCurrentUserCount()
         {
-            if(Globals.Users.Count < 5 && Globals.Users.Count >= 0)
+            if (Globals.Users.Count < 5 && Globals.Users.Count >= 0)
             {
                 Globals.isUsersLoaded = true;
                 return true;
@@ -170,6 +171,7 @@ namespace MEESEES2.ViewModels
                 {
                     RefreshValues();
                     //(Application.Current).MainPage = new AppShell();
+
                     await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
                 }
                 else
@@ -214,6 +216,6 @@ namespace MEESEES2.ViewModels
                 return;
             }
         }
-        
+
     }
 }

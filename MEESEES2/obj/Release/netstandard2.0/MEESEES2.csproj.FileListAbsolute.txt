@@ -18,3 +18,5 @@ D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Release\netstandard2.0\Xaml
 D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Release\netstandard2.0\MEESEES2.dll
 D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Release\netstandard2.0\ref\MEESEES2.dll
 D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Release\netstandard2.0\MEESEES2.pdb
+D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Release\netstandard2.0\Controls\FlyoutFooterView.xaml.g.cs
+D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Release\netstandard2.0\Controls\FlyoutImageView.xaml.g.cs

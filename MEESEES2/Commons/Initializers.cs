@@ -17,7 +17,7 @@ namespace MEESEES2.Commons
         }
         public void InitializeIncomeCategory()
         {
-            string[] defaultIncome = { "Salary", "Business", "Freelancing","Interest Income", "Others" };
+            string[] defaultIncome = { "Salary", "Business", "Freelancing", "Interest Income", "Others" };
             Globals.IncomeCategories.Clear();
             for (int i = 0; i < defaultIncome.Length; i++)
             {
@@ -49,7 +49,7 @@ namespace MEESEES2.Commons
         }
         public void InitializeSavingsCategory()
         {
-            string[] defaultSavings = { "Bank", "Cash Box","Piggy Bank", "Others" };
+            string[] defaultSavings = { "Bank", "Cash Box", "Piggy Bank", "Others" };
             Globals.SavingsCategories.Clear();
             for (int i = 0; i < defaultSavings.Length; i++)
             {

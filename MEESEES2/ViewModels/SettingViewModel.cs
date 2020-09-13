@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using MEESEES2.Services;
 
 namespace MEESEES2.ViewModels
 {
@@ -49,10 +50,11 @@ namespace MEESEES2.ViewModels
                 OnPropertyChanged(nameof(UserSettings));
             }
         }
-        
+
         public ICommand LoadUserSettingsCommand { get; private set; }
         public ICommand SaveSettingsCommand { get; private set; }
         public ICommand ResetTransactionCommand { get; private set; }
+        public ICommand ShowPopupAdsCommand { get; private set; } //2020/09/11
         #endregion
 
 
@@ -64,10 +66,42 @@ namespace MEESEES2.ViewModels
             LoadUserSettingsCommand = new Command(async () => await LoadSettings());
             SaveSettingsCommand = new Command(async () => await SaveSetting());
             ResetTransactionCommand = new Command(async () => await Reset());
+            ShowPopupAdsCommand = new Command(async () => await ShowPopupAds()); //2020/09/11
+        }
+        private async Task ShowPopupAds() //2020/09/11
+        {
+            DateTime timeNow = DateTime.Now;
+            int timeMinute = timeNow.Minute;
+
+            if (timeMinute % 3 == 0)
+            {
+                if (Globals.PopAdCount == 0)
+                {
+                    Globals.isAdClosed = false;
+                }
+            }
+
+            if (Globals.isAdClosed)
+            {
+                Globals.PopAdCount = 0;
+            }
+            else
+            {
+                if (Globals.PopAdCount == 1)
+                {                 
+                    return;
+                }
+                else
+                {
+                    await DependencyService.Get<IInterstitialAds>().Display(Globals.PopAdId); //Globals.PopAd ca-app-pub-3940256099942544/1033173712
+
+                }
+
+            }
         }
         private async Task Reset()
         {
-            if(await _pageInterface.DisplayAlert("WARNING","Are you sure you want to delete your transactions?", "YES", "NO"))
+            if (await _pageInterface.DisplayAlert("WARNING", "Are you sure you want to delete your transactions?", "YES", "NO"))
             {
                 await _generalInterface.ResetUserData(Globals.currentUser.Pin);
                 if (Globals.isSuccess)
@@ -88,12 +122,12 @@ namespace MEESEES2.ViewModels
         }
         private bool ValidateSavings()
         {
-            if(UserSettings.Count > 0)
+            if (UserSettings.Count > 0)
             {
                 bool isSavings = false;
-                foreach(UserSettingViewModel setting in UserSettings)
+                foreach (UserSettingViewModel setting in UserSettings)
                 {
-                    if(setting.Code == "SAVAMT")
+                    if (setting.Code == "SAVAMT")
                     {
                         isSavings = true;
                     }
@@ -138,7 +172,7 @@ namespace MEESEES2.ViewModels
         private async Task SaveSetting()
         {
             bool isUpdated = false;
-            bool isCreated = false ;
+            bool isCreated = false;
 
             if (!string.IsNullOrEmpty(Amount))
             {
@@ -222,30 +256,35 @@ namespace MEESEES2.ViewModels
             {
                 await LoadSettings();
                 await _pageInterface.DisplayAlert("SUCCESS", "Settings updated / created.", "OK");
+                //ca-app-pub-3940256099942544/1033173712
+                //if (Globals.isShowAds)
+                //{
+                //    await DependencyService.Get<IInterstitialAds>().Display(Globals.PopAdId); //Globals.PopAd ca-app-pub-3940256099942544/1033173712 //2020/09/11
+                //}
                 return;
             }
         }
         private async Task LoadSettings()
         {
             var settings = await _generalInterface.GetUserSettingsByPin(Globals.currentUser.Pin);
-            if(settings != null)
+            if (settings != null)
             {
                 UserSettings = new ObservableCollection<UserSettingViewModel>();
                 UserSettings.Clear();
-                foreach(UserSetting setting in settings)
+                foreach (UserSetting setting in settings)
                 {
                     UserSettings.Add(new UserSettingViewModel(setting));
                 }
-                if(UserSettings.Count > 0)
+                if (UserSettings.Count > 0)
                 {
-                    foreach(UserSettingViewModel setting in UserSettings)
+                    foreach (UserSettingViewModel setting in UserSettings)
                     {
-                        if(setting.Code == "SAVAMT")
+                        if (setting.Code == "SAVAMT")
                         {
                             Globals.targetSavings = Convert.ToDecimal(setting.Value);
                             Amount = setting.Value;
                         }
-                        if(setting.Code == "NOTIF")
+                        if (setting.Code == "NOTIF")
                         {
                             Globals.isNotify = setting.Value == "TRUE" ? true : false;
                             IsNotify = setting.Value == "TRUE" ? true : false;

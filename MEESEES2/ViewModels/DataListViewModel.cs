@@ -164,17 +164,17 @@ namespace MEESEES2.ViewModels
             OrigData.Clear();
         }
 
-        private bool ValidateDate()
-        {
-            if(FromDate == ToDate || FromDate > ToDate)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //private bool ValidateDate() //2020/09/11
+        //{
+        //    if (FromDate == ToDate || FromDate > ToDate)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
         private bool ValidateSwitch()
         {
             if (IsExpenseToggled || IsIncomeToggled || IsSavingsToggled)
@@ -186,6 +186,17 @@ namespace MEESEES2.ViewModels
                 return false;
             }
         }
+        private bool ValidateFromTo() //2020/09/11
+        {
+            if(FromDate > ToDate)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public async Task SelectData(UserDataViewModel data)
         {
             if (SelectedData == null) return;
@@ -195,8 +206,8 @@ namespace MEESEES2.ViewModels
         }
         public async Task DeleteData(UserDataViewModel data)
         {
-            string _type = data.Type == "F" ? "Fund :" : data.Type == "S" ? "Savings :" : data.Type=="E" ? "Expense :" : "";
-            if (await _pageService.DisplayAlert("WARNING",$"Are you sure you want to delete this record? Type : {_type}, Amount : {data.Amount}, Remarks : {data.Description}", "YES", "NO"))
+            string _type = data.Type == "F" ? "Fund :" : data.Type == "S" ? "Savings :" : data.Type == "E" ? "Expense :" : "";
+            if (await _pageService.DisplayAlert("WARNING", $"Are you sure you want to delete this record? Type : {_type}, Amount : {data.Amount}, Remarks : {data.Description}", "YES", "NO"))
             {
                 var userdata = await _generalInterface.GetUserData(data.Id);
                 await _generalInterface.DeleteUserData(userdata);
@@ -210,7 +221,7 @@ namespace MEESEES2.ViewModels
 
         public async Task LoadData()
         {
-            if (ValidateDate())
+            if (ValidateFromTo())
             {
                 var datalist = await _generalInterface.GetUserDataByPin(Globals.currentUser.Pin);
                 ListViewData = new ObservableCollection<UserDataViewModel>();
@@ -228,7 +239,7 @@ namespace MEESEES2.ViewModels
                         {
                             if (data.TransDate >= FromDate && data.TransDate <= ToDate && data.Category == SelectedCategory.Code)
                             {
-                                ListViewData.Add(new UserDataViewModel(data,"list"));
+                                ListViewData.Add(new UserDataViewModel(data, "list"));
                                 OrigData.Add(new UserDataViewModel(data, "new"));
                             }
                         }
@@ -239,7 +250,7 @@ namespace MEESEES2.ViewModels
                         {
                             if (data.TransDate >= FromDate && data.TransDate <= ToDate)
                             {
-                                ListViewData.Add(new UserDataViewModel(data,"list"));
+                                ListViewData.Add(new UserDataViewModel(data, "list"));
                                 OrigData.Add(new UserDataViewModel(data, "new"));
                             }
                         }
@@ -258,7 +269,7 @@ namespace MEESEES2.ViewModels
                         {
                             if (data.TransDate >= FromDate && data.TransDate <= ToDate && data.Category == SelectedCategory.Code && data.Type == TempType)
                             {
-                                ListViewData.Add(new UserDataViewModel(data,"list"));
+                                ListViewData.Add(new UserDataViewModel(data, "list"));
                                 OrigData.Add(new UserDataViewModel(data, "new"));
                             }
                         }
@@ -269,7 +280,7 @@ namespace MEESEES2.ViewModels
                         {
                             if (data.TransDate >= FromDate && data.TransDate <= ToDate && (data.Type == _tempExpense || data.Type == _tempSavings || data.Type == _tempIncome))
                             {
-                                ListViewData.Add(new UserDataViewModel(data,"list"));
+                                ListViewData.Add(new UserDataViewModel(data, "list"));
                                 OrigData.Add(new UserDataViewModel(data, "new"));
                             }
                         }
@@ -278,7 +289,7 @@ namespace MEESEES2.ViewModels
             }
             else
             {
-                await _pageService.DisplayAlert("ERROR", "Please input valid date range.", "OK");
+                await _pageService.DisplayAlert("ERROR", "From date must not be greater than To date.", "OK");
                 return;
             }
         }

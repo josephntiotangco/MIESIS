@@ -37,7 +37,7 @@ namespace MEESEES2
 
         protected override bool OnBackButtonPressed()
         {
-            if(Globals.currentUser != null)
+            if (Globals.currentUser != null)
             {
                 base.OnBackButtonPressed();
                 shellView.LogOutCommand.Execute(null);

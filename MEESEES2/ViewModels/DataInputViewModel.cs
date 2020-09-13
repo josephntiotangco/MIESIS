@@ -9,6 +9,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using System.Linq;
 using System.Diagnostics.Contracts;
+using MEESEES2.Services;
 
 namespace MEESEES2.ViewModels
 {
@@ -136,6 +137,7 @@ namespace MEESEES2.ViewModels
             }
         }
         public ICommand SaveCommand { get; private set; }
+        public ICommand ShowPopupAdsCommand { get; private set; } //2020/09/11
         #endregion
 
         public DataInputViewModel(IGeneralInterface generalInterface, IPageService pageService)
@@ -147,7 +149,7 @@ namespace MEESEES2.ViewModels
             SelectedCategory = null;
 
             SaveCommand = new Command(async () => await Save());
-
+            ShowPopupAdsCommand = new Command(async () => await ShowPopupAds()); //2020/09/11
         }
         public void RefreshUI()
         {
@@ -204,12 +206,43 @@ namespace MEESEES2.ViewModels
                 return false;
             }
         }
+        private async Task ShowPopupAds() //2020/09/11
+        {
+            //ca-app-pub-3940256099942544/1033173712
+            DateTime timeNow = DateTime.Now;
+            int timeMinute = timeNow.Minute;
 
+            if (timeMinute % 3 == 0)
+            {
+                if(Globals.PopAdCount == 0)
+                {
+                    Globals.isAdClosed = false;
+                }
+            }
+
+            if (Globals.isAdClosed)
+            {
+                Globals.PopAdCount = 0;
+            }
+            else
+            {
+                if (Globals.PopAdCount == 1)
+                {
+                    return;
+                }
+                else
+                {
+                    await DependencyService.Get<IInterstitialAds>().Display(Globals.PopAdId); //Globals.PopAd ca-app-pub-3940256099942544/1033173712
+
+                }
+
+            }
+        }
         private async Task Save()
         {
-            if(Globals.userData.Id != 0)
+            if (Globals.userData.Id != 0)
             {
-                if(Remarks != Globals.userData.Description || Convert.ToDecimal(Amount) != Globals.userData.Amount || SelectedDate != Globals.userData.TransDate || SelectedCategory.Code != Globals.userData.Category || Globals.Type != Globals.userData.Type)
+                if (Remarks != Globals.userData.Description || Convert.ToDecimal(Amount) != Globals.userData.Amount || SelectedDate != Globals.userData.TransDate || SelectedCategory.Code != Globals.userData.Category || Globals.Type != Globals.userData.Type)
                 {
                     UserData = new UserData
                     {
@@ -223,7 +256,7 @@ namespace MEESEES2.ViewModels
                         UpdateDate = DateTime.Now
                     };
 
-                    if(await _pageService.DisplayAlert("CONFIRMATION","Are you sure you want to update this record?", "YES", "NO"))
+                    if (await _pageService.DisplayAlert("CONFIRMATION", "Are you sure you want to update this record?", "YES", "NO"))
                     {
                         await _generalInterface.UpdateUserData(UserData);
                         await _pageService.DisplayAlert("SUCCESS", "Update successful.", "OK");
@@ -263,13 +296,19 @@ namespace MEESEES2.ViewModels
                             UpdateDate = DateTime.Now,
                             Pin = Globals.currentUser.Pin
                         };
-                        
+
                         if (await _pageService.DisplayAlert("CONFIRMATION", $"Are you sure you want to post the following details?" +
                             $" Type: {_temp}, Category: {SelectedCategory.Description}, Description: {Remarks}, Amount: {Amount}, Transaction Date: {SelectedDate}", "YES", "NO"))
                         {
                             await _generalInterface.AddUserData(UserData);
                             await _pageService.DisplayAlert("SUCCESS", "Posting successful.", "OK");
                             RefreshUI();
+
+                            //if (Globals.isShowAds)
+                            //{
+                            //ca-app-pub-3940256099942544/1033173712
+                            //await DependencyService.Get<IInterstitialAds>().Display(Globals.PopAdId); //Globals.PopAd ca-app-pub-3940256099942544/1033173712 //2020/09/11
+                            //}
                         }
                         else
                         {

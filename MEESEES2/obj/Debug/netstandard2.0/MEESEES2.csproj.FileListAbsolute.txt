@@ -18,3 +18,5 @@ D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Debug\netstandard2.0\Views\
 D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Debug\netstandard2.0\Views\SettingPage.xaml.g.cs
 D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Debug\netstandard2.0\MEESEES2.csproj.CoreCompileInputs.cache
 D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Debug\netstandard2.0\XamlC.stamp
+D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Debug\netstandard2.0\Controls\FlyoutImageView.xaml.g.cs
+D:\MY FILES\MY PROJECTS\GitHub\MEESEES2\MEESEES2\obj\Debug\netstandard2.0\Controls\FlyoutFooterView.xaml.g.cs

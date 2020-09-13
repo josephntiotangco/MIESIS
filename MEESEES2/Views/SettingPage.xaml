@@ -5,14 +5,14 @@
              Title="Settings"
              x:Class="MEESEES2.Views.SettingPage">
     <ContentPage.Content>
-        <Grid>
+        <Grid Padding="0" RowSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -37,10 +37,11 @@
                     <Label Text="Reset Transactions:" Grid.Column="0" Style="{StaticResource Key=InputLabel}"/>
                     <ImageButton Source="pasteltmachine25.png" BackgroundColor="Transparent" Grid.Column="1" HorizontalOptions="Start"  HeightRequest="30" WidthRequest="30" Clicked="OnResetClicked"/>
                 </Grid>
+                <StackLayout Grid.Row="3">
+                    <Button Style="{StaticResource Key=CustomButton}" Command="{Binding SaveSettingsCommand}" Text="SAVE" Margin="30,0,30,0"/>
+                </StackLayout>
             </Grid>
-            <StackLayout Grid.Row="1">
-                <Button Style="{StaticResource Key=CustomButton}" Command="{Binding SaveSettingsCommand}" Text="SAVE" Margin="30,0,30,0"/>
-            </StackLayout>
+            <controls:AdmobControl Grid.Row="1" BackgroundColor="{StaticResource Key=AppBackgroundColor}" HeightRequest="90" HorizontalOptions="FillAndExpand"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

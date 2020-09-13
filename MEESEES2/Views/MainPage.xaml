@@ -6,7 +6,7 @@
              Title="Dashboard"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              x:Class="MEESEES2.Views.MainPage">
-    <Grid x:Name="MainGrid">
+    <Grid x:Name="MainGrid" RowSpacing="0" Padding="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -221,5 +221,6 @@
                 </Grid>
             </ScrollView>
         </RefreshView>
+        <controls:AdmobControl Grid.Row="3" BackgroundColor="{StaticResource Key=AppBackgroundColor}" HeightRequest="90" HorizontalOptions="FillAndExpand"/>
     </Grid>
 </ContentPage>

@@ -16,11 +16,14 @@ namespace MEESEES2.Views
     {
         public EntryPage()
         {
+            //ca-app-pub-6838059012127071/4824098100
+            //ca-app-pub-3940256099942544/6300978111
+            Globals.BannerAdId = "ca-app-pub-6838059012127071/4824098100";
             SQLiteGeneral sqlDb = new SQLiteGeneral(DependencyService.Get<ISQLiteDb>(), "");
             PageService pageService = new PageService();
             dataModel = new DataInputViewModel(sqlDb, pageService);
             InitializeComponent();
-            
+
             dpkTransDate.SetValue(DatePicker.MinimumDateProperty, DateTime.Today.AddMonths(-12));
             dpkTransDate.SetValue(DatePicker.MaximumDateProperty, DateTime.Today.AddMonths(12));
             dataModel.SelectedDate = DateTime.Today;
@@ -35,6 +38,7 @@ namespace MEESEES2.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            dataModel.ShowPopupAdsCommand.Execute(null); //2020/09/11
             dataModel.UpdateUserDate();
         }
         protected override void OnDisappearing()
